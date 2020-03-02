@@ -1,0 +1,28 @@
+{
+	"hosting": {
+		"public": "public",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"rewrites": [
+			{
+				"source": "/signup",
+				"destination": "/signup.html"
+			},
+			{
+				"source": "/forgot",
+				"destination": "/forgotpassword.html"
+			},
+			{
+				"source": "/calendar",
+				"destination": "/calendar.html"
+			},
+			{
+				"source": "/profile",
+				"destination": "/profile.html"
+			},
+			{
+				"source": "/",
+				"destination": "/index.html"
+			}
+		]
+	}
+}

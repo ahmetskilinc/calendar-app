@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Full calendar project</title>
+
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a href="/" class="navbar-brand">FullCalendar</a>
+				<span class="spacer"></span>
+				<a class="profile-link" href="/profile"></a>
+				<button class="btn btn-danger" onclick="logout()">Log out</button>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-3 mt-4">
+					<h2>Add Event</h2>
+					<div class="loading-spinner-add-event justify-content-center hide">
+						<div class="spinner-border" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+					<form onsubmit="newEvent()">
+						<div class="form-group">
+							<label for="titleInput">Title</label>
+							<input type="text" class="form-control" id="titleInput" placeholder="Enter Title" />
+						</div>
+						<div class="form-group">
+							<label for="startDateInput">Start date</label>
+							<input
+								onchange="validateDdMmYyyy(this);"
+								type="text"
+								class="form-control"
+								id="startDateInput"
+								aria-describedby="startDateDescriber"
+								placeholder="Date"
+							/>
+							<small id="startDateDescriber" class="form-text text-muted">DD/MM/YYYY</small>
+						</div>
+						<div class="form-group">
+							<label for="startTimeInput">Start Time</label>
+							<input
+								onchange="validateHhMm(this);"
+								type="text"
+								class="form-control"
+								id="startTimeInput"
+								aria-describedby="startTimeDescriber"
+								placeholder="Time"
+							/>
+							<small id="startTimeDescriber" class="form-text text-muted">MM:HH</small>
+						</div>
+						<div class="form-group">
+							<label for="endDateInput">End date</label>
+							<input
+								onchange="validateDdMmYyyy(this);"
+								type="datetime"
+								class="form-control"
+								id="endDateInput"
+								aria-describedby="endDateDescriber"
+								placeholder="Date"
+							/>
+							<small id="endDateDescriber" class="form-text text-muted">DD/MM/YYYY</small>
+						</div>
+						<div class="form-group">
+							<label for="endTimeInput">End time</label>
+							<input
+								onchange="validateHhMm(this);"
+								type="text"
+								class="form-control"
+								id="endTimeInput"
+								aria-describedby="endTimeDescriber"
+								placeholder="Time"
+							/>
+							<small id="endTimeDescriber" class="form-text text-muted">MM:HH</small>
+						</div>
+						<div class="form-group">
+							<label for="calendarEventInput">Which Calendar</label>
+							<select
+								class="form-control"
+								id="calendarEventInput"
+								aria-describedby="calendarEventDescriber"
+							>
+								<option value="work">Work</option>
+								<option value="school">School</option>
+								<option value="home">Home</option>
+							</select>
+							<small id="calendarEventDescriber" class="form-text text-muted"
+								>Which calendar is this event for?</small
+							>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+					<div class="add-event-done mt-3 hide">
+						<h5>Event added successfully.</h5>
+						<button class="btn btn-primary" onclick="showEventForm()">Add another event</button>
+					</div>
+				</div>
+				<div class="col-9 mt-4">
+					<h2>Your Calendar</h2>
+					<div class="loading-spinner-calendar d-flex justify-content-center">
+						<div class="spinner-border" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+					<div id="calendar" class="p-4 hide"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js"></script>
+
+	<script src="/__/firebase/7.9.3/firebase-app.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-auth.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-firestore.js"></script>
+	<script src="/__/firebase/init.js"></script>
+
+	<script src="/assets/js/firebase.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/profile.js"></script>
+</html>

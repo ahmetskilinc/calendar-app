@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Full calendar project</title>
+
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a href="/" class="navbar-brand">FullCalendar</a>
+				<span class="spacer"></span>
+				<a class="profile-link" href="/profile"></a>
+				<button class="btn btn-danger" onclick="logout()">Log out</button>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row"> </div>
+		</div>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js"></script>
+
+	<script src="/__/firebase/7.9.3/firebase-app.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-auth.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-firestore.js"></script>
+	<script src="/__/firebase/init.js"></script>
+
+	<script src="/assets/js/firebase.js"></script>
+	<script src="/assets/js/profile.js"></script>
+</html>

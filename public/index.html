@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a href="/" class="navbar-brand">FullCalendar</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="mt-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Login</h5>
+							<form onsubmit="login()">
+								<div class="alert alert-danger hide" role="alert"> </div>
+								<div class="form-group">
+									<label for="emailInput">Email address</label>
+									<input
+										type="email"
+										class="form-control"
+										id="emailInput"
+										placeholder="Enter email"
+									/>
+								</div>
+								<div class="form-group">
+									<label for="passwordInput">Password</label>
+									<input
+										type="password"
+										class="form-control"
+										id="passwordInput"
+										placeholder="Password"
+									/>
+								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<br />
+								<a class="btn btn-warning mt-3" href="/forgot">Forgot password</a>
+								<br />
+								<a href="/signup">Sign up now</a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script src="/__/firebase/7.9.3/firebase-app.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-auth.js"></script>
+	<script src="/__/firebase/7.9.2/firebase-firestore.js"></script>
+	<script src="/__/firebase/init.js"></script>
+
+	<script src="/assets/js/firebase.js"></script>
+	<script src="/assets/js/login.js"></script>
+</html>
