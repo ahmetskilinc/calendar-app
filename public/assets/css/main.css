@@ -14,3 +14,8 @@
 .hide {
 	display: none;
 }
+
+.loader {
+	height: calc(100vh - 64px);
+	width: 100vw;
+}

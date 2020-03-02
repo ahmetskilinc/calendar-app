@@ -1,10 +1,18 @@
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const alertBox = document.querySelector(".alert-danger");
+const loader = document.querySelector(".loader");
+const contentContainer = document.querySelector("#content-container");
 
 auth.onAuthStateChanged(user => {
 	if (user) {
 		window.location.assign("/calendar");
+		console.log("idk");
+	} else {
+		loader.classList.add("hide");
+		loader.classList.remove("d-flex");
+		contentContainer.classList.remove("hide");
+		console.log("loaded");
 	}
 });
 

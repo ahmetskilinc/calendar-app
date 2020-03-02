@@ -1,5 +1,17 @@
 const emailInput = document.getElementById("emailInput");
 const alertBox = document.querySelector(".alert");
+const loader = document.querySelector(".loader");
+const contentContainer = document.querySelector("#content-container");
+
+auth.onAuthStateChanged(user => {
+	if (user) {
+		window.location.assign("/calendar");
+	} else {
+		loader.classList.add("hide");
+		loader.classList.remove("d-flex");
+		contentContainer.classList.remove("hide");
+	}
+});
 
 function forgotPassword() {
 	event.preventDefault();

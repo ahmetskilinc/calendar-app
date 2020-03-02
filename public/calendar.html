@@ -23,7 +23,14 @@
 				<button class="btn btn-danger" onclick="logout()">Log out</button>
 			</div>
 		</nav>
-		<div class="container">
+		<div class="loader d-flex justify-content-center align-items-center">
+			<div class="loading-spinner-add-event justify-content-center">
+				<div class="spinner-border" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
+		</div>
+		<div id="content-container" class="container hide">
 			<div class="row">
 				<div class="col-3 mt-4">
 					<h2>Add Event</h2>
@@ -108,12 +115,6 @@
 					</div>
 				</div>
 				<div class="col-9 mt-4">
-					<h2>Your Calendar</h2>
-					<div class="loading-spinner-calendar d-flex justify-content-center">
-						<div class="spinner-border" role="status">
-							<span class="sr-only">Loading...</span>
-						</div>
-					</div>
 					<div id="calendar" class="p-4 hide"></div>
 				</div>
 			</div>

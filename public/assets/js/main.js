@@ -1,6 +1,7 @@
 let eventsArray = [];
 let usersRef = db.collection("users");
 let userId;
+
 document.addEventListener("DOMContentLoaded", function() {
 	auth.onAuthStateChanged(user => {
 		if (user) {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getEvents() {
 	eventsArray = [];
+	console.log("getEvents");
 	usersRef
 		.doc(userId)
 		.collection("events")
@@ -37,7 +39,6 @@ function getEvents() {
 
 function renderCalendar() {
 	let calendarElement = document.querySelector("#calendar");
-	let loadingSpinner = document.querySelector(".loading-spinner-calendar");
 
 	let calendar = new FullCalendar.Calendar(calendarElement, {
 		plugins: ["dayGrid", "timeGrid"],
@@ -50,8 +51,6 @@ function renderCalendar() {
 		maxTime: "23:00",
 		events: eventsArray
 	});
-	loadingSpinner.classList.add("hide");
-	loadingSpinner.classList.remove("d-flex");
 	calendarElement.classList.remove("hide");
 	calendar.render();
 }
