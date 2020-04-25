@@ -2,8 +2,8 @@ let eventsArray = [];
 let usersRef = db.collection("users");
 let userId;
 
-document.addEventListener("DOMContentLoaded", function() {
-	auth.onAuthStateChanged(user => {
+document.addEventListener("DOMContentLoaded", function () {
+	auth.onAuthStateChanged((user) => {
 		if (user) {
 			userId = auth.currentUser.uid;
 			getEvents();
@@ -18,21 +18,21 @@ function getEvents() {
 		.doc(userId)
 		.collection("events")
 		.get()
-		.then(function(querySnapshot) {
-			querySnapshot.forEach(function(doc) {
+		.then(function (querySnapshot) {
+			querySnapshot.forEach(function (doc) {
 				eventsArray.push({
 					title: doc.data().title.toString(),
 					start: doc.data().start.toDate(),
 					end: doc.data().end.toDate(),
 					backgroundColor: setEventBackground(doc.data().calendar),
-					textColor: setEventTextColor(doc.data().calendar)
+					textColor: setEventTextColor(doc.data().calendar),
 				});
 			});
 		})
-		.then(function() {
+		.then(function () {
 			renderCalendar();
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			console.log("Error getting documents: ", error);
 		});
 }
@@ -40,16 +40,17 @@ function getEvents() {
 function renderCalendar() {
 	let calendarElement = document.querySelector("#calendar");
 
-	let calendar = new FullCalendar.Calendar(calendarElement, {
+	let calendar = new Calendar(calendarElement, {
 		plugins: ["dayGrid", "timeGrid"],
 		header: {
 			left: "dayGridMonth,timeGridWeek,timeGridDay",
 			center: "title",
-			right: "prev,next,today"
+			right: "prev,next,today",
 		},
+		defaultView: "dayGridMonth",
 		minTime: "06:00",
 		maxTime: "23:00",
-		events: eventsArray
+		events: eventsArray,
 	});
 	calendarElement.classList.remove("hide");
 	calendar.render();
@@ -86,7 +87,7 @@ function newEvent() {
 			endTime.split(":")[0],
 			endTime.split(":")[1]
 		),
-		calendar: calendarEventInput
+		calendar: calendarEventInput,
 	};
 
 	loadingSpinner.classList.remove("hide");
@@ -97,14 +98,14 @@ function newEvent() {
 		.doc(userId)
 		.collection("events")
 		.add(newEventObj)
-		.then(function(docRef) {
+		.then(function (docRef) {
 			addEventDone.classList.remove("hide");
 			loadingSpinner.classList.remove("d-flex");
 			loadingSpinner.classList.add("hide");
 			form.reset();
 			console.log("Document written with ID: ", docRef.id);
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			console.error("Error adding document: ", error);
 		});
 }
